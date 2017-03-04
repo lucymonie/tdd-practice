@@ -1,8 +1,8 @@
-# Checkout contructor function
+# Checkout constructor function
 
 ### Notes
 This is a function that constructs checkout objects as follows
-`var co = new Checkout()`
+`var co = new Checkout();`
 
 It has the following methods
 - `co.scan()` to add an item to the basket and the price of the item to the subtotal
