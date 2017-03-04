@@ -9,18 +9,18 @@ const Checkout = function () {
     this.subtotal += items[productCode].price;
   };
   this.subtotal = 0;
-  this.total = function() {
+  this.discount = function () {
+    let discountTotal = this.subtotal;
     let discountNumFr1 = Math.ceil(this.basket.FR1 / 2);
-     this.subtotal -= (items.FR1.price * this.basket.FR1);
-      console.log(items.FR1.price * this.basket.FR1)
-      console.log(items.FR1.price * discountNumFr1);
-     this.subtotal += (items.FR1.price * discountNumFr1);
-     this.subtotal -= ((items.SR1.price / 2) * this.basket.SR1);
-    return this.subtotal;
+     discountTotal -= (items.FR1.price * this.basket.FR1);
+     discountTotal += (items.FR1.price * discountNumFr1);
+     discountTotal -= ((items.SR1.price / 2) * this.basket.SR1);
+    return discountTotal;
+  }
+  this.total = function() {
+    return this.discount();
   };
 }
-
-let co = new Checkout();
 
 const items = {
 	FR1: {name: 'Fruit tea', price: 3.11, discount: 'two for one'},
