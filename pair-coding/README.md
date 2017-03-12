@@ -6,6 +6,7 @@ This is a function that constructs checkout objects as follows
 
 It has the following methods
 - `co.scan()` to add an item to the basket and the price of the item to the subtotal
+- `co.remove()` to remove an item from the basket and the price from the subtotal
 - `co.discount()` to apply the appropriate discounts to discounted items
 - `co.total()` to return the total after any discounts have been applied
 
@@ -14,6 +15,6 @@ It has following properties
 - `co.basket` an object that counts the number of each item that has been scanned
 
 Additional methods and properties that could be added
-- `co.remove()` method so scanned items can be removed from the basket and the subtotal reduced by the price of the item
 - `co.receipt()` method to generate a recipt from `co.basket`, `co.discount()` and `co.total`
-- Refactor Checkout function so `co.scan()` is a pure function and returns a new basket after each scan rather than modifying the basket object 
+- `co.refund()` method to refund an item after the transaction is completed, and create a new receipt
+- Refactor Checkout function so `co.scan()` is a pure function and returns a new basket after each scan rather than modifying the basket object

@@ -12,6 +12,11 @@ Checkout.prototype.scan = function (productCode) {
   this.subtotal += items[productCode].price;
 };
 
+Checkout.prototype.remove = function (productCode) {
+  this.basket[productCode] -= 1;
+  this.subtotal -= items[productCode].price;
+};
+
 Checkout.prototype.discount = function () {
   let discountTotal = this.subtotal;
   let discountNumFr1 = Math.ceil(this.basket.FR1 / 2);

@@ -35,6 +35,15 @@ describe("Tests for checkout, check that it", function() {
     co4.basket = {FR1:1,SR1:0,CF1:2}
     co4.subtotal = (3.11+(2*11.23));
     expect(co4.total()).toBe(3.11+(2*11.23))
-  })
+  });
+
+  it('should be able to remove an item from the basket and subtotal before total is called', function () {
+    let co5 = new Checkout();
+    co5.basket = {FR1:1,SR1:0,CF1:2}
+    co5.subtotal = (3.11+(2*11.23));
+    co5.remove('FR1');
+    expect(co5.basket).toEqual({FR1:0,SR1:0,CF1:2});
+    expect(co5.subtotal).toBe(2*11.23);
+  });
 
 })
